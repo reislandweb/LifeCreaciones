@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- TODO CLIENTE: Nombre de la marca --> Marca | Camisetas, Tazas y Llaveros personalizados</title>
+<meta name="description" content="Personaliza camisetas, tazas y llaveros con tu propio diseño.">
+
+<!-- TODO CLIENTE: si tienes logo en SVG/PNG, lo metemos aquí como favicon -->
+<link rel="icon" href="data:,">
+
+<!-- Tipografías: Fraunces (display), Manrope (texto), JetBrains Mono (precios/etiquetas) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Definicion SVG reutilizada para recortar el llavero de corazon (clip-path) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+      <path d="M0.5,0.92 C0.15,0.68 0.02,0.42 0.15,0.22 C0.27,0.05 0.5,0.1 0.5,0.28 C0.5,0.1 0.73,0.05 0.85,0.22 C0.98,0.42 0.85,0.68 0.5,0.92 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- ============================================= -->
+<!-- INTRO / ANIMACION DE PRESENTACION DE MARCA     -->
+<!-- ============================================= -->
+
+<div id="intro-loader" aria-hidden="true">
+  <div class="intro-thread"></div>
+  <div class="intro-content">
+    <!-- TODO CLIENTE: sustituir por el logo real (SVG) si existe -->
+    <span class="intro-mark">✚</span>
+    <h1 class="intro-title">MARCA<span class="intro-title-sub">AQUI</span></h1>
+    <p class="intro-tagline"><!-- TODO CLIENTE: eslogan corto de la marca --> Tu fe, tu estilo, hecho a mano</p>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- HEADER / NAV                                    -->
+<!-- ============================================= -->
+<header class="site-header" id="site-header">
+  <a href="#top" class="brand">
+    <span class="brand-mark">✚</span>
+    <span class="brand-name"><!-- TODO CLIENTE: nombre de marca -->Marca</span>
+  </a>
+  <nav class="main-nav">
+    <a href="#stage-camiseta">Camisetas</a>
+    <a href="#stage-taza">Tazas</a>
+    <a href="#stage-llaveros">Llaveros</a>
+    <a href="#personalizar" class="nav-cta">Personalizar</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============================================= -->
+  <!-- HERO breve, entrada al storytelling             -->
+  <!-- ============================================= -->
+  <section class="hero">
+    <p class="hero-eyebrow">Hecho a mano · Bajo pedido</p>
+    <h2 class="hero-title">Cada prenda<br>lleva un mensaje.</h2>
+    <p class="hero-sub">Desliza hacia abajo y descubre cómo tu camiseta, tu taza y tu llavero cobran vida.</p>
+    <div class="scroll-hint">
+      <span>Desliza</span>
+      <div class="scroll-hint-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ETAPA 1: CAMISETA                                -->
+  <!-- ============================================= -->
+  <section class="scroll-stage" id="stage-camiseta" data-stage="camiseta">
+    <div class="stage-sticky">
+
+      <!-- Versiculos decorativos alrededor -->
+      <p class="stage-verse verse-left" data-show-from="0.15" data-show-to="0.65">
+        <!-- TODO CLIENTE: versículo 1 (texto + referencia) -->
+        “Todo lo puedo en Cristo que me fortalece.”<br><span>Filipenses 4:13</span>
+      </p>
+      <p class="stage-verse verse-right" data-show-from="0.3" data-show-to="0.75">
+        <!-- TODO CLIENTE: versículo 2 (texto + referencia) -->
+        “Vestíos de la nueva persona.”<br><span>Efesios 4:24</span>
+      </p>
+
+      <div class="stage-visual" id="visual-camiseta">
+        <!-- Silueta / diseño de marca que se fusiona con la camiseta -->
+        <!-- TODO CLIENTE: sustituir por el diseño/silueta real de la marca (SVG) -->
+        <svg class="stage-merge-design" id="design-camiseta" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M100 45 L100 155 M55 75 L145 75" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Camiseta (placeholder SVG en blanco, sustituir por foto/producto real) -->
+        <svg class="stage-product" id="product-camiseta" viewBox="0 0 300 320" aria-label="Camiseta blanca">
+          <path d="M90 20 L120 5 Q150 -10 180 5 L210 20 L260 55 L235 100 L210 85 L210 300 Q150 315 90 300 L90 85 L65 100 L40 55 Z"
+                fill="#f7f4ec" stroke="#cfc8b4" stroke-width="3"/>
+          <path d="M120 5 Q150 30 180 5" fill="none" stroke="#cfc8b4" stroke-width="3"/>
+        </svg>
+      </div>
+
+      <button class="stage-cta" id="cta-camiseta" data-goto="#panel-camiseta">
+        Personaliza tu camiseta
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ETAPA 2: TAZA                                   -->
+  <!-- ============================================= -->
+  <section class="scroll-stage" id="stage-taza" data-stage="taza">
+    <div class="stage-sticky">
+
+      <div class="glass-crack" id="glass-crack" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <path d="M200 200 L120 90 M200 200 L260 60 M200 200 L320 150 M200 200 L340 260 M200 200 L230 360 M200 200 L110 320 M200 200 L60 210 M200 200 L90 130"
+                stroke="rgba(255,255,255,0.9)" stroke-width="2" fill="none"/>
+          <path d="M200 200 L160 130 M200 200 L245 130 M200 200 L280 210 M200 200 L150 260" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="stage-visual" id="visual-taza">
+        <!-- TODO CLIENTE: silueta/diseño de marca para fusionar con la taza -->
+        <svg class="stage-merge-design" id="design-taza" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M70 100 Q100 60 130 100 Q100 140 70 100 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+        </svg>
+
+        <!-- Taza (placeholder SVG, sustituir por foto/producto real) -->
+        <svg class="stage-product" id="product-taza" viewBox="0 0 260 260" aria-label="Taza blanca">
+          <rect x="55" y="70" width="130" height="140" rx="10" fill="#f7f4ec" stroke="#cfc8b4" stroke-width="3"/>
+          <path d="M185 100 Q225 100 225 140 Q225 180 185 180" fill="none" stroke="#cfc8b4" stroke-width="10"/>
+        </svg>
+      </div>
+
+      <button class="stage-cta" id="cta-taza" data-goto="#panel-taza">
+        Personaliza tu taza
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ETAPA 3: LLAVEROS                                -->
+  <!-- ============================================= -->
+  <section class="scroll-stage" id="stage-llaveros" data-stage="llaveros">
+    <div class="stage-sticky">
+
+      <div class="stage-visual" id="visual-llaveros">
+
+        <div class="keychain-float kf-rect" id="kf-rect">
+          <svg class="stage-merge-design kf-design" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M20 50 L45 30 L80 55 L60 75 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+          </svg>
+          <svg class="stage-product" viewBox="0 0 120 160" aria-label="Llavero rectangular">
+            <circle cx="60" cy="14" r="8" fill="none" stroke="#cfc8b4" stroke-width="3"/>
+            <rect x="20" y="30" width="80" height="110" rx="10" fill="#f7f4ec" stroke="#cfc8b4" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <div class="keychain-float kf-heart" id="kf-heart">
+          <svg class="stage-merge-design kf-design" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M30 40 Q30 20 50 30 Q70 20 70 40 Q70 65 50 80 Q30 65 30 40 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+          </svg>
+          <svg class="stage-product" viewBox="0 0 140 140" aria-label="Llavero corazón">
+            <circle cx="70" cy="14" r="8" fill="none" stroke="#cfc8b4" stroke-width="3"/>
+            <path d="M70 130 C20 95 15 55 40 35 C55 23 70 33 70 50 C70 33 85 23 100 35 C125 55 120 95 70 130 Z"
+                  fill="#f7f4ec" stroke="#cfc8b4" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <div class="keychain-float kf-round" id="kf-round">
+          <svg class="stage-merge-design kf-design" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M50 25 L58 42 L77 44 L63 57 L67 76 L50 66 L33 76 L37 57 L23 44 L42 42 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+          </svg>
+          <svg class="stage-product" viewBox="0 0 140 140" aria-label="Llavero redondo">
+            <circle cx="70" cy="14" r="8" fill="none" stroke="#cfc8b4" stroke-width="3"/>
+            <circle cx="70" cy="80" r="55" fill="#f7f4ec" stroke="#cfc8b4" stroke-width="3"/>
+          </svg>
+        </div>
+
+      </div>
+
+      <button class="stage-cta" id="cta-llaveros" data-goto="#panel-llaveros">
+        Personaliza tu llavero
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECCION DE PERSONALIZACION                       -->
+  <!-- ============================================= -->
+  <section class="customize" id="personalizar">
+    <div class="customize-head">
+      <p class="eyebrow">Personalización</p>
+      <h2>Haz tu pedido a medida</h2>
+      <p class="customize-sub">Elige el producto, súbenos tu diseño y colócalo donde quieras. Al final te mandamos directo a WhatsApp con todo listo.</p>
+    </div>
+
+    <div class="customize-tabs" role="tablist">
+      <button class="tab-btn is-active" data-tab="panel-camiseta" role="tab" aria-selected="true">👕 Camiseta</button>
+      <button class="tab-btn" data-tab="panel-taza" role="tab" aria-selected="false">☕ Taza</button>
+      <button class="tab-btn" data-tab="panel-llaveros" role="tab" aria-selected="false">🔑 Llavero</button>
+    </div>
+
+    <div class="customize-body">
+
+      <!-- ===================== PANEL CAMISETA ===================== -->
+      <div class="tab-panel is-active" id="panel-camiseta" data-product="camiseta" data-price="12.50">
+        <div class="panel-grid">
+
+          <!-- Preview -->
+          <div class="panel-preview">
+            <div class="preview-subtabs">
+              <button class="subtab-btn is-active" data-side="frente">Delante</button>
+              <button class="subtab-btn" data-side="espalda">Detrás</button>
+            </div>
+
+            <div class="mockup mockup-camiseta" id="mockup-camiseta">
+              <!-- TODO CLIENTE: sustituir estos SVG por fotos reales de la camiseta (frente/espalda) -->
+              <svg class="mockup-base" id="mockup-camiseta-svg" viewBox="0 0 300 320">
+                <path d="M90 20 L120 5 Q150 -10 180 5 L210 20 L260 55 L235 100 L210 85 L210 300 Q150 315 90 300 L90 85 L65 100 L40 55 Z"
+                      fill="#ffffff" stroke="#d8d2c0" stroke-width="3"/>
+                <path d="M120 5 Q150 30 180 5" fill="none" stroke="#d8d2c0" stroke-width="3"/>
+              </svg>
+
+              <!-- Zona permitida delantera -->
+              <div class="print-zone" id="zone-camiseta-frente" data-side="frente"
+                   style="left:32%; top:24%; width:36%; height:38%;">
+                <!-- TODO CLIENTE: ajustar % exactos según medida real de la zona imprimible delantera -->
+                <img class="draggable-img" id="img-camiseta-frente" alt="Tu diseño delante" hidden>
+              </div>
+              <!-- Zona permitida trasera (se muestra al cambiar de sub-pestaña) -->
+              <div class="print-zone is-hidden" id="zone-camiseta-espalda" data-side="espalda"
+                   style="left:30%; top:20%; width:40%; height:40%;">
+                <!-- TODO CLIENTE: ajustar % exactos según medida real de la zona imprimible trasera -->
+                <img class="draggable-img" id="img-camiseta-espalda" alt="Tu diseño detrás" hidden>
+              </div>
+            </div>
+            <p class="preview-hint">Arrastra la imagen dentro del área punteada. Ahí es donde se imprimirá.</p>
+          </div>
+
+          <!-- Formulario -->
+          <form class="panel-form" id="form-camiseta">
+
+            <fieldset>
+              <legend>Tipo de tela</legend>
+              <label class="radio-pill"><input type="radio" name="tela" value="algodon" checked> Algodón</label>
+              <label class="radio-pill"><input type="radio" name="tela" value="poliester"> Poliéster</label>
+            </fieldset>
+
+            <fieldset id="grupo-color-algodon">
+              <legend>Color (algodón)</legend>
+              <!-- TODO CLIENTE: lista real de colores disponibles en algodón -->
+              <select name="color-algodon" id="color-algodon">
+                <option value="blanco">Blanco</option>
+                <option value="negro">Negro</option>
+                <option value="gris">Gris jaspeado</option>
+                <option value="azul-marino">Azul marino</option>
+              </select>
+            </fieldset>
+
+            <fieldset id="grupo-color-poliester" hidden>
+              <legend>Color (poliéster)</legend>
+              <p class="static-note">Solo disponible en blanco.</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>¿Para quién es?</legend>
+              <select name="categoria" id="categoria-camiseta">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="nino">Niño/a</option>
+                <option value="bebe">Bebé</option>
+              </select>
+            </fieldset>
+
+            <fieldset id="grupo-edad-nino" hidden>
+              <legend>Edad</legend>
+              <!-- TODO CLIENTE: confirmar rango real de edades para niño/a -->
+              <select name="edad-nino">
+                <option value="2-3">2-3 años</option>
+                <option value="4-5">4-5 años</option>
+                <option value="6-7">6-7 años</option>
+                <option value="8-9">8-9 años</option>
+                <option value="10-12">10-12 años</option>
+              </select>
+            </fieldset>
+
+            <fieldset id="grupo-meses-bebe" hidden>
+              <legend>Meses</legend>
+              <!-- TODO CLIENTE: confirmar rango real de meses para bebé -->
+              <select name="meses-bebe">
+                <option value="0-3">0-3 meses</option>
+                <option value="3-6">3-6 meses</option>
+                <option value="6-9">6-9 meses</option>
+                <option value="9-12">9-12 meses</option>
+                <option value="12-18">12-18 meses</option>
+              </select>
+            </fieldset>
+
+            <fieldset>
+              <legend>Talla</legend>
+              <!-- TODO CLIENTE: tabla de tallas real. Estas opciones se muestran/ocultan según categoría vía JS -->
+              <select name="talla" id="talla-camiseta">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </fieldset>
+
+            <fieldset>
+              <legend>Estampado delante</legend>
+              <p class="static-note">Incluido: <strong>12,50 €</strong></p>
+              <label class="file-btn">
+                <input type="file" accept="image/*" id="file-camiseta-frente">
+                Subir imagen delante
+              </label>
+              <span class="file-name" id="filename-camiseta-frente">Ningún archivo</span>
+            </fieldset>
+
+            <fieldset>
+              <legend>¿También detrás? (+5,00 €)</legend>
+              <label class="checkbox-pill">
+                <input type="checkbox" id="check-espalda-camiseta"> Sí, quiero estampado detrás
+              </label>
+              <div id="grupo-file-espalda" hidden>
+                <label class="file-btn">
+                  <input type="file" accept="image/*" id="file-camiseta-espalda">
+                  Subir imagen detrás
+                </label>
+                <span class="file-name" id="filename-camiseta-espalda">Ningún archivo</span>
+              </div>
+            </fieldset>
+
+            <div class="scale-control">
+              <label for="scale-camiseta-frente">Tamaño del diseño (delante)</label>
+              <input type="range" id="scale-camiseta-frente" min="40" max="150" value="100">
+            </div>
+            <div class="scale-control" id="scale-espalda-wrap" hidden>
+              <label for="scale-camiseta-espalda">Tamaño del diseño (detrás)</label>
+              <input type="range" id="scale-camiseta-espalda" min="40" max="150" value="100">
+            </div>
+
+            <button type="button" class="add-to-order" data-product="camiseta">
+              Añadir camiseta a mi pedido — <span class="add-price">12,50 €</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ===================== PANEL TAZA ===================== -->
+      <div class="tab-panel" id="panel-taza" data-product="taza" data-price="9.50">
+        <div class="panel-grid">
+
+          <div class="panel-preview">
+            <div class="mockup mockup-taza" id="mockup-taza">
+              <!-- TODO CLIENTE: sustituir por foto real de la taza -->
+              <svg class="mockup-base" viewBox="0 0 260 260">
+                <rect x="55" y="70" width="130" height="140" rx="10" fill="#ffffff" stroke="#d8d2c0" stroke-width="3"/>
+                <path d="M185 100 Q225 100 225 140 Q225 180 185 180" fill="none" stroke="#d8d2c0" stroke-width="10"/>
+              </svg>
+
+              <!-- Área imprimible de la taza: TODO CLIENTE — sustituir % por la medida real (alto x ancho de la zona de impresión) -->
+              <div class="print-zone" id="zone-taza" style="left:23%; top:30%; width:47%; height:47%;">
+                <img class="draggable-img" id="img-taza" alt="Tu diseño en la taza" hidden>
+              </div>
+            </div>
+            <p class="preview-hint">Arrastra tu imagen dentro del área imprimible de la taza.</p>
+          </div>
+
+          <form class="panel-form" id="form-taza">
+            <fieldset>
+              <legend>Tu diseño</legend>
+              <p class="static-note">Precio: <strong>9,50 €</strong></p>
+              <label class="file-btn">
+                <input type="file" accept="image/*" id="file-taza">
+                Subir imagen
+              </label>
+              <span class="file-name" id="filename-taza">Ningún archivo</span>
+            </fieldset>
+
+            <div class="scale-control">
+              <label for="scale-taza">Tamaño del diseño</label>
+              <input type="range" id="scale-taza" min="40" max="150" value="100">
+            </div>
+
+            <button type="button" class="add-to-order" data-product="taza">
+              Añadir taza a mi pedido — <span class="add-price">9,50 €</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ===================== PANEL LLAVEROS ===================== -->
+      <div class="tab-panel" id="panel-llaveros" data-product="llavero" data-price="7.50">
+        <div class="panel-grid">
+
+          <div class="panel-preview">
+            <div class="llavero-type-select">
+              <label class="radio-pill"><input type="radio" name="tipo-llavero" value="rectangular" checked> Rectangular</label>
+              <label class="radio-pill"><input type="radio" name="tipo-llavero" value="corazon"> Corazón</label>
+              <label class="radio-pill"><input type="radio" name="tipo-llavero" value="redondo"> Redondo</label>
+            </div>
+
+            <div class="preview-subtabs">
+              <button class="subtab-btn is-active" data-side="frente">Delante</button>
+              <button class="subtab-btn" data-side="espalda">Detrás</button>
+            </div>
+
+            <div class="mockup mockup-llavero" id="mockup-llavero">
+              <!-- TODO CLIENTE: sustituir por fotos reales de cada llavero (rectangular/corazón/redondo) -->
+              <div class="llavero-shape llavero-rectangular is-active" data-shape="rectangular">
+                <div class="llavero-hole"></div>
+                <div class="print-zone llavero-zone" data-side="frente">
+                  <img class="draggable-img" alt="Tu diseño delante" hidden>
+                </div>
+                <div class="print-zone llavero-zone is-hidden" data-side="espalda">
+                  <img class="draggable-img" alt="Tu diseño detrás" hidden>
+                </div>
+              </div>
+              <div class="llavero-shape llavero-corazon" data-shape="corazon">
+                <div class="llavero-hole"></div>
+                <div class="print-zone llavero-zone" data-side="frente">
+                  <img class="draggable-img" alt="Tu diseño delante" hidden>
+                </div>
+                <div class="print-zone llavero-zone is-hidden" data-side="espalda">
+                  <img class="draggable-img" alt="Tu diseño detrás" hidden>
+                </div>
+              </div>
+              <div class="llavero-shape llavero-redondo" data-shape="redondo">
+                <div class="llavero-hole"></div>
+                <div class="print-zone llavero-zone" data-side="frente">
+                  <img class="draggable-img" alt="Tu diseño delante" hidden>
+                </div>
+                <div class="print-zone llavero-zone is-hidden" data-side="espalda">
+                  <img class="draggable-img" alt="Tu diseño detrás" hidden>
+                </div>
+              </div>
+            </div>
+            <p class="preview-hint">La imagen se recorta automáticamente a la forma del llavero elegido.</p>
+          </div>
+
+          <form class="panel-form" id="form-llavero">
+            <fieldset>
+              <legend>Imagen delante</legend>
+              <p class="static-note">Precio (por unidad): <strong>7,50 €</strong></p>
+              <label class="file-btn">
+                <input type="file" accept="image/*" id="file-llavero-frente">
+                Subir imagen delante
+              </label>
+              <span class="file-name" id="filename-llavero-frente">Ningún archivo</span>
+            </fieldset>
+
+            <fieldset>
+              <legend>Imagen detrás (opcional)</legend>
+              <label class="file-btn">
+                <input type="file" accept="image/*" id="file-llavero-espalda">
+                Subir imagen detrás
+              </label>
+              <span class="file-name" id="filename-llavero-espalda">Ningún archivo</span>
+            </fieldset>
+
+            <button type="button" class="add-to-order" data-product="llavero">
+              Añadir llavero a mi pedido — <span class="add-price">7,50 €</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- RESUMEN Y ENVIO GLOBAL DEL PEDIDO                -->
+  <!-- ============================================= -->
+  <section class="order-summary" id="order-summary">
+    <div class="order-inner">
+      <h2>Tu pedido</h2>
+
+      <ul class="order-list" id="order-list">
+        <li class="order-empty">Todavía no has añadido ningún producto arriba.</li>
+      </ul>
+
+      <div class="order-total">
+        <span>Total</span>
+        <strong id="order-total">0,00 €</strong>
+      </div>
+
+      <form class="order-form" id="order-form">
+        <label class="field">
+          <span>Nombre y apellidos</span>
+          <input type="text" name="nombre" id="cliente-nombre" required placeholder="Nombre y apellidos">
+        </label>
+        <label class="field">
+          <span>Teléfono</span>
+          <input type="tel" name="telefono" id="cliente-telefono" required placeholder="600 000 000">
+        </label>
+
+        <label class="checkbox-pill terms">
+          <input type="checkbox" id="cliente-terminos" required>
+          He leído y acepto los <a href="#" id="terms-link">términos y condiciones</a>.
+          <!-- TODO CLIENTE: pasar texto real de términos y condiciones para enlazar / modal -->
+        </label>
+
+        <button type="submit" class="submit-order" id="submit-order">
+          Solicitar pedido por WhatsApp
+        </button>
+        <p class="whatsapp-note">
+          Te llevaremos a WhatsApp con el resumen ya escrito. Justo antes se descargará(n)
+          la(s) imagen(es) de vista previa de tu diseño — solo tienes que <strong>adjuntarla(s) en el chat</strong>
+          para que veamos exactamente dónde quieres cada dibujo.
+        </p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-thread"></div>
+  <p><!-- TODO CLIENTE: nombre marca, datos de contacto, redes sociales --> © 2026 Marca. Hecho con fe y con hilo.</p>
+</footer>
+
+<!-- Canvas oculto usado para generar la imagen de vista previa que se descarga antes de ir a WhatsApp -->
+<canvas id="export-canvas" width="800" height="800" style="display:none;"></canvas>
+
+<!-- html2canvas: genera la imagen de vista previa del diseño colocado, para descargar y adjuntar en WhatsApp -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
