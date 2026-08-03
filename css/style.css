@@ -279,6 +279,7 @@ ul {
   /* Un pequeño salto suave al pasar el ratón */
 }
 
+/*ADAPTACION PARA MOVILES*/
 @media (max-width: 760px) {
   .main-nav {
     display: none;
